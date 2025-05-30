@@ -21,19 +21,6 @@ li {
     list-style: none;
 }
 
-/* map */
-.mapContainer {
-    display: flex;
-    height: 100vh;
-}
-.map {
-    flex: 1;
-    background-color: #74b9ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 /* sidebar */
 .sidebar {
     width: 300px;
@@ -106,4 +93,33 @@ li {
 }
 .location__label:hover {
     color: #333;
+}
+
+/* map */
+.mapContainer {
+    display: flex;
+    height: 100vh;
+}
+.map {
+    flex: 1;
+    background-color: #74b9ff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* map pins */
+.map-pin {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -100%);
+    transition: all 0.2s ease;
+}
+.map-pin:hover {
+    transform: translate(-50%, -100%) scale(1.1);
+}
+.map-pin--hidden {
+    display: none;
 }
