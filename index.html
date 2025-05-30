@@ -5,11 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interaktivt kort</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     <div class="mapContainer">
         <div class="sidebar">
             <h1 class="sidebar__title">Opdag Als</h1>
+
+            <div class="category">
+                <div class="category__header" onclick="toggleCategory(this)">
+                    <span class="material-symbols-outlined category__icon">beach_access</span>
+                    <h4 class="category__title">Strandene i Sønderborg</h4>
+                    <span class="material-symbols-outlined category__arrow">chevron_right</span>
+                </div>
+                <div class="category__content">
+                </div>
+            </div>
         </div>
         <div class="map">
             
