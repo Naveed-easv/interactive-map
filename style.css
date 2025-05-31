@@ -87,6 +87,8 @@ li {
 }
 .location__checkbox {
     margin-right: 1rem;
+    height: 1rem;
+    width: 1rem;
 }
 .location__label {
     color: #555;
@@ -110,16 +112,16 @@ li {
 }
 
 /* map pins */
-.map-pin {
+.map__pin {
     position: absolute;
     width: 30px;
     height: 30px;
     transform: translate(-50%, -100%);
     transition: all 0.2s ease;
 }
-.map-pin:hover {
+.map__pin:hover {
     transform: translate(-50%, -100%) scale(1.1);
 }
-.map-pin--hidden {
+.map__pin--hidden {
     display: none;
 }
