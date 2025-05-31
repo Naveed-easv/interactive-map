@@ -32,11 +32,11 @@ const locations = {
 
 // markers
 const markerSvgs = {
-    beach: 'media/BeachPin.svg',
-    hiking: 'media/ShoePin.svg',
-    shopping: 'media/ShoppingPin.svg',
-    culture: 'media/CulturePin.svg',
-    active: 'media/ActivePin.svg'
+    beach: 'https://dssj.naveedn.dk/wp-content/uploads/2025/05/BeachPin.svg',
+    hiking: 'https://dssj.naveedn.dk/wp-content/uploads/2025/05/ShoePin.svg',
+    shopping: 'https://dssj.naveedn.dk/wp-content/uploads/2025/05/ShoppingPin.svg',
+    culture: 'https://dssj.naveedn.dk/wp-content/uploads/2025/05/CulturePin.svg',
+    active: 'https://dssj.naveedn.dk/wp-content/uploads/2025/05/ActivePin.svg'
 };
 
 // marker icons
@@ -60,6 +60,34 @@ function initMap() {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+    // location markers
+    Object.keys(locations).forEach(locationId => {
+        const location = locations[locationId];
+        const marker = L.marker([location.lat, location.lng], {
+            icon: createCustomIcon(location.type)
+        }).addTo(map);
+        
+        marker.bindPopup(`<strong>${location.name}</strong>`);
+        
+        // Store marker reference
+        markers[locationId] = marker;
+        
+        // Add click event to marker
+        marker.on('click', function() {
+            const checkbox = document.getElementById(locationId);
+            if (checkbox) {
+                // Find the corresponding sidebar item and highlight it briefly
+                const label = document.querySelector(`label[for="${locationId}"]`);
+                if (label) {
+                    label.classList.add('location__label--highlighted');
+                    setTimeout(() => {
+                        label.classList.remove('location__label--highlighted');
+                    }, 1000);
+                }
+            }
+        });
+    });
 }
 
 //dropdown toggle
