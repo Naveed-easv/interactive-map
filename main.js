@@ -49,6 +49,19 @@ function createCustomIcon(type) {
     });
 }
 
+// https://leafletjs.com/examples/quick-start/
+// initialize map
+function initMap() {
+    // center map on Sønderborg
+    map = L.map('leaflet-map').setView([54.9089, 9.7914], 12);
+    
+    // add OpenStreetMap tiles
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+}
+
 //dropdown toggle
 function toggleCategory(header) {
     const category = header.parentElement;
@@ -69,16 +82,7 @@ function toggleLocation(locationId) {
     }
 }
 
-//click event for pins to show location name
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    const pins = document.querySelectorAll('.map__pin');
-    pins.forEach(pin => {
-        pin.addEventListener('click', function() {
-            const locationId = this.id.replace('pin-', '');
-            const label = document.querySelector(`label[for="${locationId}"]`);
-            if (label) {
-                alert('📍 ' + label.textContent);
-            }
-        });
-    });
+    initMap();
 });
