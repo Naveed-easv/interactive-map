@@ -91,6 +91,14 @@ function initMap() {
             hideScrollNotification();
         }
     });
+
+    // disable scroll zoom when the mouse leaves the map
+    map.getContainer().addEventListener('mouseleave', function() {
+        scrollEnabled = false;
+        map.scrollWheelZoom.disable();
+        showScrollNotification();
+    });
+
     // add OpenStreetMap tiles
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
