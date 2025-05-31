@@ -1,5 +1,7 @@
+// initialize variables
 let map;
 let markers = {};
+let scrollEnabled = false;
 
 // coordinates
 const locations = {
@@ -53,7 +55,10 @@ function createCustomIcon(type) {
 // initialize map
 function initMap() {
     // center map on Sønderborg
-    map = L.map('leaflet-map').setView([54.9089, 9.7914], 12);
+    map = L.map('leaflet-map', {
+        scrollWheelZoom: false, // disable scroll zoom by default
+        zoomControl: true
+    }).setView([54.9089, 9.7914], 11);
     
     // add OpenStreetMap tiles
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -70,14 +75,14 @@ function initMap() {
         
         marker.bindPopup(`<strong>${location.name}</strong>`);
         
-        // Store marker reference
+        // store marker reference
         markers[locationId] = marker;
         
-        // Add click event to marker
+        // click event ´for marker
         marker.on('click', function() {
             const checkbox = document.getElementById(locationId);
             if (checkbox) {
-                // Find the corresponding sidebar item and highlight it briefly
+                // find sidebar item and highlight it 
                 const label = document.querySelector(`label[for="${locationId}"]`);
                 if (label) {
                     label.classList.add('location__label--highlighted');
