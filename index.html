@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interaktivt kort</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
@@ -119,62 +120,10 @@
             </div>
         </div>
         <div class="map">
-            <div class="map__pin" id="pin-strand-1" style="left: 20%; top: 60%;">
-                <img src="media/BeachPin.svg" alt="">
-            </div>
-            <div class="map__pin" id="pin-strand-2" style="left: 45%; top: 30%;">
-                <img src="media/BeachPin.svg" alt="">
-            </div>
-            <div class="map__pin" id="pin-strand-3" style="left: 70%; top: 45%;">
-                <img src="media/BeachPin.svg" alt="">
-            </div>
-
-            <!-- hiking pins -->
-             <div class="map__pin" id="pin-tur-1" style="left: 35%; top: 55%;">
-                <img src="media/ShoePin.svg" alt="">
-            </div>
-            <div class="map__pin" id="pin-tur-2" style="left: 60%; top: 35%;">
-                <img src="media/ShoePin.svg" alt="">
-            </div>
-            <div class="map__pin" id="pin-tur-3" style="left: 50%; top: 70%;">
-                <img src="media/BikePin.svg" alt="">
-            </div>
-
-            <!-- shopping pins -->
-             <div class="map__pin" id="pin-shop-1" style="left: 40%; top: 50%;">
-                <img src="media/ShoppingPin.svg" alt="">
-            </div>
-            <div class="map__pin" id="pin-shop-2" style="left: 48%; top: 32%;">
-                <img src="media/ShoppingPin.svg" alt="">
-            </div>
-            <div class="map__pin" id="pin-shop-3" style="left: 52%; top: 68%;">
-                <img src="media/ShoppingPin.svg" alt="">
-            </div>
-
-            <!-- culture pins -->
-             <div class="map__pin" id="pin-kultur-1" style="left: 55%; top: 65%;">
-                <img src="media/CulturePin.svg" alt="">
-            </div>
-            <div class="map__pin" id="pin-kultur-2" style="left: 65%; top: 40%;">
-                <img src="media/CulturePin.svg" alt="">
-            </div>
-            <div class="map__pin" id="pin-kultur-3" style="left: 30%; top: 40%;">
-                <img src="media/CulturePin.svg" alt="">
-            </div>
-
-            <!-- activity pins -->
-             <div class="map__pin" id="pin-aktiv-1" style="left: 42%; top: 45%;">
-                <img src="media/ActivePin.svg" alt="">
-            </div>
-            <div class="map__pin" id="pin-aktiv-2" style="left: 25%; top: 50%;">
-                <img src="media/ActivePin.svg" alt="">
-                </svg>
-            </div>
-            <div class="map__pin" id="pin-aktiv-3" style="left: 46%; top: 28%;">
-                <img src="media/ActivePin.svg" alt="">
-            </div>
+            <div id="leaflet-map"></div>
         </div>
     </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
