@@ -4,6 +4,7 @@ function toggleCategory(header) {
     category.classList.toggle('category--expanded');
 }
 
+//toggle pins
 function toggleLocation(locationId) {
     const checkbox = document.getElementById(locationId);
     const pin = document.getElementById('pin-' + locationId);
@@ -15,7 +16,7 @@ function toggleLocation(locationId) {
     }
 }
 
-// Add click event to pins to show location name
+//click event for pins to show location name
 document.addEventListener('DOMContentLoaded', function() {
     const pins = document.querySelectorAll('.map__pin');
     pins.forEach(pin => {

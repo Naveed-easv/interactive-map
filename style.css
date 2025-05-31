@@ -48,6 +48,8 @@ li {
     transition: background-color 250ms ease;
     background-color: #f8f9fa;
     border-radius: 8px;
+    transition: background-color 0.2s ease;
+    position: relative;
 }
 .category__header:hover {
     background-color: #e9ecef;
@@ -87,11 +89,9 @@ li {
 }
 .location__checkbox {
     margin-right: 1rem;
-    height: 1rem;
-    width: 1rem;
 }
 .location__label {
-    color: #555;
+    font-size: 0.85rem;
 }
 .location__label:hover {
     color: #333;
