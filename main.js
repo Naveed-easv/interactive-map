@@ -2,6 +2,7 @@
 let map;
 let markers = {};
 let scrollEnabled = false;
+let notification;
 
 // coordinates
 const locations = {
@@ -51,6 +52,26 @@ function createCustomIcon(type) {
     });
 }
 
+// scroll notification
+function showScrollNotification() {
+    if (!notification) {
+        notification = L.control({position: 'topleft'});
+        notification.onAdd = function() {
+            var div = L.DomUtil.create('div', 'scroll-notification');
+            div.innerHTML = '<div style="background: #007cba; color: white; padding: 8px 12px; border-radius: 4px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); pointer-events: none;">🖱️ Click map to enable scroll zoom</div>';
+            return div;
+        };
+        notification.addTo(map);
+    }
+}
+function hideScrollNotification() {
+    if (notification) {
+        map.removeControl(notification);
+        notification = "";
+    }
+}
+
+
 // https://leafletjs.com/examples/quick-start/
 // initialize map
 function initMap() {
@@ -60,6 +81,16 @@ function initMap() {
         zoomControl: true
     }).setView([54.9089, 9.7914], 11);
     
+    showScrollNotification(); // display scroll notification
+
+    // enable scroll zoom when clicking on the map
+    map.on('click', function() {
+        if (!scrollEnabled) {
+            scrollEnabled = true;
+            map.scrollWheelZoom.enable();
+            hideScrollNotification();
+        }
+    });
     // add OpenStreetMap tiles
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
