@@ -1,4 +1,3 @@
-// initialize map
 let map;
 let markers = {};
 
@@ -6,28 +5,29 @@ let markers = {};
 const locations = {
     // beaches
     'strand-1': { lat: 54.905699082108804, lng: 9.785943434093719, name: 'Fluepapiret', type: 'beach' },
-    'strand-2': { lat: 54.9420, lng: 9.8156, name: 'Den Sorte Badestrand', type: 'beach' },
-    'strand-3': { lat: 54.8956, lng: 9.8789, name: 'Toøren', type: 'beach' },
+    
+    'strand-2': { lat: 54.89774821313825, lng: 9.803388089622732, name: 'Den Sorte Badestrand', type: 'beach' },
+    'strand-3': { lat: 54.90602245391619, lng: 9.78045356960696, name: 'Dybbøl Strand', type: 'beach' },
     
     // hiking/cycling
-    'tur-1': { lat: 54.9345, lng: 9.8234, name: 'Naturpark Nordals', type: 'hiking' },
-    'tur-2': { lat: 54.9156, lng: 9.8456, name: 'Gendarmstien', type: 'hiking' },
-    'tur-3': { lat: 54.9567, lng: 9.8123, name: 'Nordkysten på Als', type: 'hiking' },
+    'tur-1': { lat: 55.02870284962671, lng: 9.727711284712766, name: 'Naturpark Nordals', type: 'hiking' },
+    'tur-2': { lat: 54.897745939739316, lng: 9.755679632797293, name: 'Gendarmstien', type: 'hiking' },
+    'tur-3': { lat: 55.01565242122567, lng: 9.94464439009769, name: 'Alsstien', type: 'hiking' },
     
     // shopping
-    'shop-1': { lat: 54.9089, lng: 9.7856, name: 'Borgen Shopping', type: 'shopping' },
-    'shop-2': { lat: 54.9234, lng: 9.7456, name: 'Nordborg Center', type: 'shopping' },
-    'shop-3': { lat: 54.9456, lng: 9.8678, name: 'Augustenborg Butikker', type: 'shopping' },
+    'shop-1': { lat: 54.90947216568481, lng: 9.791671861636711, name: 'Borgen Shopping', type: 'shopping' },
+    'shop-2': { lat: 54.92353266389178, lng: 9.80975068923191, name: 'Dansk Sønderborg', type: 'shopping' },
+    'shop-3': { lat: 54.91021609857013, lng: 9.789911183362994, name: 'WestWind Sønderborg', type: 'shopping' },
     
     // culture
-    'kultur-1': { lat: 54.9456, lng: 9.8634, name: 'Augustenborg Slot', type: 'culture' },
-    'kultur-2': { lat: 54.9089, lng: 9.7856, name: 'Sønderborgs Sydhavn', type: 'culture' },
-    'kultur-3': { lat: 54.9234, lng: 9.8123, name: 'Nordals Museum', type: 'culture' },
+    'kultur-1': { lat: 54.90718766136453, lng: 9.783872127035652, name: 'Sønderborg Slot', type: 'culture' },
+    'kultur-2': { lat: 54.91097493160671, lng: 9.785567907462797, name: 'Sønderborgs Sydhavn', type: 'culture' },
+    'kultur-3': { lat: 54.90718392709678, lng: 9.754253050545636, name: 'Historiecenter Dybbøl Banke', type: 'culture' },
     
     // active
-    'aktiv-1': { lat: 54.9089, lng: 9.7756, name: 'Universe Science Park', type: 'active' },
-    'aktiv-2': { lat: 54.8934, lng: 9.7634, name: 'Als Aktivitetspark', type: 'active' },
-    'aktiv-3': { lat: 54.9345, lng: 9.7923, name: 'Sønderborg Padel Center', type: 'active' }
+    'aktiv-1': { lat: 55.04239869343909, lng: 9.809816073596984, name: 'Universe Science Park', type: 'active' },
+    'aktiv-2': { lat: 54.97640248028504, lng: 9.885789159323457, name: 'Als Aktivitetspark', type: 'active' },
+    'aktiv-3': { lat: 54.92011629753493, lng: 9.823530598199932, name: 'Sønderborg Padel Center', type: 'active' }
 };
 
 // markers
