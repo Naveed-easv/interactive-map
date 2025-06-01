@@ -172,6 +172,54 @@ function createCustomIcon(type) {
     });
 }
 
+// create popup content
+function createPopupContent(location) {
+    return `
+        <div style="
+        width: 280px; 
+        font-family: "Montserrat", sans-serif;">
+            <img src="${location.image}" 
+                 alt="${location.name}" 
+                 style="
+                 width: 100%; 
+                 height: 150px; 
+                 object-fit: cover; 
+                 border-radius: 8px; 
+                 margin-bottom: 12px;"
+                 onerror="this.style.display='none'">
+            <h3 style="
+                margin: 0 0 8px 0; 
+                font-size: 18px; 
+                font-weight: 600; 
+                color: #333;">${location.name}
+            </h3>
+            <p style="
+                margin: 0 0 12px 0; 
+                font-size: 14px; 
+                line-height: 1.4; 
+                color: #666;
+                ">${location.description}
+            </p>
+            <a href="${location.link}" 
+               target="_blank" 
+               style="
+               display: inline-block; 
+               background: #007cba; 
+               color: white; 
+               padding: 8px 16px; 
+               text-decoration: none; 
+               border-radius: 4px; 
+               font-size: 14px; 
+               font-weight: 500; 
+               transition: background-color 0.2s;"
+               onmouseover="this.style.backgroundColor='#005a87'"
+               onmouseout="this.style.backgroundColor='#007cba'">
+               Læs mere
+            </a>
+        </div>
+    `;
+}
+
 // scroll notification
 function showScrollNotification() {
     if (!notification) {
@@ -192,13 +240,13 @@ function showScrollNotification() {
         notification.addTo(map);
     }
 }
+
 function hideScrollNotification() {
     if (notification) {
         map.removeControl(notification);
         notification = "";
     }
 }
-
 
 // https://leafletjs.com/examples/quick-start/
 // initialize map
@@ -240,12 +288,16 @@ function initMap() {
             icon: createCustomIcon(location.type)
         }).addTo(map);
         
-        marker.bindPopup(`<strong>${location.name}</strong>`);
+        // bind enhanced popup with custom content
+        marker.bindPopup(createPopupContent(location), {
+            maxWidth: 300,
+            className: 'popup--custom'
+        });
         
         // store marker reference
         markers[locationId] = marker;
         
-        // click event ´for marker
+        // click event for marker
         marker.on('click', function() {
             const checkbox = document.getElementById(locationId);
             if (checkbox) {
